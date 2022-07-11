@@ -19,7 +19,7 @@ Please indicate your choice(default is 1):''')
 
 # change the directory to where we save the study logs.
 def change_directory():
-    destination = 'F:/video/study_record'
+    destination = r'E:\study_logging'
     if os.getcwd() != destination:
         if not os.path.exists(destination):
             os.mkdir(destination)
@@ -43,24 +43,24 @@ def study_logging():
         study_count = re.findall(reg, records)[0]
         study_count = int(study_count)
             
-    count_logging = f'This is your {study_count+1} time(s) study, it should last 60 minutes!'
+    count_logging = f'This is your {study_count+1} time(s) study, it should last 90 minutes!'
     start_time = datetime.now()
     start_logging = f'Start Time: {start_time}'
     print(count_logging)
     print(start_logging)
 
     try:
-        minutes = 5
+        interval = 5
         for i in range(1, 13):# alarm for every 5 minutes
-            time.sleep(300)
-            print(f'{minutes} minutes!')
-            minutes = minutes + 5
+            time.sleep(450)
+            print(f'{interval} minutes!')
+            interval = interval + 5
         print('Session completed!')
         # demenstrate the end time of your study and the total study time of this session.
         end_time = datetime.now()
         end_logging = f'End time: {end_time}'
         time_diff = (end_time - start_time).seconds
-        total_study_time_logging = f'Total study minutes:{int(time_diff/60)}'
+        total_study_time_logging = f'Total study minutes: {int(time_diff/60)}'
         
         print(end_logging)
         print(total_study_time_logging)
